@@ -164,9 +164,9 @@ async def bot_runner(bot: BaseBot, room_id: str, api_key: str) -> None:
                                 print(
                                     f"ERROR connection with ID: {session_metadata.connection_id} closed."
                                 )
+                                ka_task.cancel()
                                 raise ConnectionResetError
                                 # Close frame
-                                #ka_task.cancel()
                                 #return
                             if isinstance(frame.data, WebSocketError):
                                 print("Websocket error, exiting.")
