@@ -165,6 +165,7 @@ async def bot_runner(bot: BaseBot, room_id: str, api_key: str) -> None:
                                     f"ERROR connection with ID: {session_metadata.connection_id} closed."
                                 )
                                 ka_task.cancel()
+                                await sleep(10)
                                 raise ConnectionResetError
                                 # Close frame
                                 #return
